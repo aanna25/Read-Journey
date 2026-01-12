@@ -1,0 +1,144 @@
+.formContainer {
+  width: 100%;
+  max-width: 472px;
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.nameWrapper {
+  margin-bottom: 8px;
+}
+
+.emailWrapper {
+  margin-bottom: 8px;
+}
+
+.passwordWrapper {
+  margin-bottom: 32px;
+}
+
+.errorMargin {
+  margin-bottom: 4px;
+}
+
+.defaultMargin {
+  margin-bottom: 8px;
+}
+
+.inputWrapper label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #f9f9f9;
+  margin-bottom: 8px;
+}
+
+.nameInput,
+.emailInput,
+.passwordInput {
+  width: 100%;
+  padding: 14px 16px;
+  background: #262626;
+  border: 1px solid rgba(104, 104, 104, 0.5);
+  border-radius: 12px;
+  color: #f9f9f9;
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+}
+
+.nameInput::placeholder,
+.emailInput::placeholder,
+.passwordInput::placeholder {
+  color: #686868;
+}
+
+.nameInput:focus,
+.emailInput:focus,
+.passwordInput:focus {
+  outline: none;
+  border-color: rgba(104, 104, 104, 0.8);
+}
+
+.inputErrorBorder {
+  border-color: #e74c3c !important;
+}
+
+.inputSuccessBorder {
+  border-color: #3cbf61 !important;
+}
+
+.errorMessage {
+  font-size: 10px;
+  font-weight: 500;
+  color: #e74c3c;
+  margin-top: 4px;
+  margin-left: 16px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #141414;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #f0f0f0;
+  border-color: #f0f0f0;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.linkLogin {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #686868;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.linkLogin:hover {
+  color: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formContainer {
+    max-width: 100%;
+  }
+
+  .formContainer h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .passwordWrapper {
+    margin-bottom: 24px;
+  }
+
+  .submitButton {
+    padding: 14px;
+    font-size: 14px;
+  }
+}

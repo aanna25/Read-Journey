@@ -1,0 +1,108 @@
+.authContainer {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1216px; 
+  margin: 0 auto;
+  gap: 16px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.leftSection {
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 80px;
+  background-color: var(--dark-grey);
+  border-radius: 30px;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--light-white);
+  margin-bottom: 40px;
+}
+
+.titleGray {
+  color: var(--light-grey);
+}
+
+.formWrapper {
+  max-width: 472px;
+}
+
+.rightSection {
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: var(--dark-grey);
+  border-radius: 30px;
+}
+
+.phoneImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+
+@media (max-width: 1439px) and (min-width: 768px) {
+  .authContainer {
+    max-width: 768px;
+  }
+
+  .rightSection {
+    display: none;
+  }
+  
+  .leftSection {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px;
+    border-right: none;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .authContainer {
+    flex-direction: column;
+    max-width: 100%;
+    box-shadow: none;
+  }
+  
+  .leftSection {
+    width: 100%;
+    background-color: #262626;
+    padding: 30px 20px;
+    min-height: auto;
+    border-right: none;
+  }
+  
+  .title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  .formWrapper {
+    max-width: 100%;
+  }
+  
+  .rightSection {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    background-color: #1f1f1f;
+  }
+  
+  .phoneImage {
+    max-height: 60vh;
+  }
+}

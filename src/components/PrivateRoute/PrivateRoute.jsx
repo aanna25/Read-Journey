@@ -1,9 +1,12 @@
-import React from 'react'
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
-const PrivateRoute = () => {
-  return (
-    <div>PrivateRoute</div>
-  )
-}
+const PrivateRoute = ({ children, redirectTo = "/" }) => {
+  const { isLoggedIn, isRefreshing } = useAuth();
 
-export default PrivateRoute
+  const shouldRedirect = !isLoggedIn && !isRefreshing;
+
+  return shouldRedirect ? <Navigate to={redirectTo} /> : children;
+};
+
+export default PrivateRoute;

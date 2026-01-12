@@ -1,9 +1,11 @@
-import React from 'react'
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
-const RestrictedRoute = () => {
-  return (
-    <div>RestrictedRoute</div>
-  )
-}
+const RestrictedRoute = ({ children, redirectTo = "/" }) => {
+  const { isLoggedIn, isRefreshing } = useAuth();
+  const shouldRedirect = isLoggedIn && !isRefreshing;
 
-export default RestrictedRoute
+  return shouldRedirect ? <Navigate to={redirectTo} /> : children;
+};
+
+export default RestrictedRoute;
