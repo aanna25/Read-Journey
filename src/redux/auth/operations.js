@@ -13,6 +13,7 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const data = await registerUser(credentials);
+      setAuthToken(data.token);
       toast.success("Registration successful! Welcome!");
       return data;
     } catch (error) {
@@ -28,6 +29,7 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const data = await loginUser(credentials);
+      setAuthToken(data.token);
       toast.success("Login successful!");
       return data;
     } catch (error) {
@@ -46,7 +48,9 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     toast.info("You have successfully logged out!");
   } catch (error) {
     clearAuthToken();
-    toast.error("An error occurred while logging out, but the session data was cleared");
+    toast.error(
+      "An error occurred while logging out, but the session data was cleared"
+    );
     return thunkAPI.rejectWithValue(error.message);
   }
 });

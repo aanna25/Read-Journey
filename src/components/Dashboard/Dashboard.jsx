@@ -1,7 +1,11 @@
-const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+import styles from "./Dashboard.module.css";
 
-export default Dashboard
+const Dashboard = ({ children }) => {
+  return (
+    <aside className={styles.dashboard}>
+      {children}
+    </aside>
+  );
+};
+
+export default Dashboard;

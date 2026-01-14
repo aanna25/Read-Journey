@@ -1,0 +1,19 @@
+.pageWrapper {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 1440px) {
+  .mainContent {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

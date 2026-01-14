@@ -1,0 +1,37 @@
+.userBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #262626;
+  border: 1px solid rgba(249, 249, 249, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-white);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.userName {
+  display: none; 
+  color: var(--light-white);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .userName {
+    display: block;
+  }
+}

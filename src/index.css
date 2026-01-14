@@ -70,6 +70,7 @@ svg {
 :root {
   --font-family: "Gilroy", sans-serif;
   --light-white: #f9f9f9;
+  --gray: #5d5d5d;
   --light-grey: #686868;
   --secondary-grey: #262626;
   --dark-grey: #1f1f1f;

@@ -1,0 +1,43 @@
+.quoteContainer {
+  display: none;
+  background-color: var(--secondary-grey);
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.iconWrapper {
+  background-color: var(--white);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.28;
+  color: var(--light-grey);
+
+  .whiteText {
+  color: var(--light-white);
+}
+}
+
+@media screen and (min-width: 768px) {
+  .quoteContainer {
+    display: none; 
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .quoteContainer {
+    display: flex;
+    margin-top: 20px;
+  }
+}

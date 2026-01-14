@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import Logo from "../Logo/Logo.jsx";
 import RegisterForm from "../RegisterForm/RegisterForm.jsx";
 import LoginForm from "../LoginForm/LoginForm.jsx";
 
@@ -16,6 +17,9 @@ const AuthPage = () => {
   return (
     <div className={styles.authContainer}>
       <div className={styles.leftSection}>
+        <div className={styles.logoWrapper}>
+          <Logo />
+        </div>
         <h1 className={styles.title}>
           Expand your mind, reading{" "}
           <span className={styles.titleGray}>a book</span>
