@@ -53,21 +53,20 @@
 .linkWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+ justify-content: space-between;
 }
 
 .link {
-  font-size: 14px;
-  color: var(--light-grey);
+  color: var(--light-grey); 
   text-decoration: underline;
-  transition: color 0.25s ease;
-}
-
-.link:hover {
-  color: var(--light-white);
+  font-size: 14px;
 }
 
 .icon {
-  stroke: var(--light-white);
-  fill: none;
+   color: var(--light-white);
+}
+
+.linkWrapper:hover .link,
+.linkWrapper:hover .icon {
+ color: var(--light-grey);
 }
