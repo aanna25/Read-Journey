@@ -8,7 +8,7 @@ import {
 } from "../../redux/books/selectors";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import styles from "./RecommendedBooks.module.css";
-
+import BookModal from "../BookModal/BookModal";
 
 const getLimit = () => {
   if (typeof window === "undefined") return 2;
@@ -26,7 +26,8 @@ const RecommendedBooks = () => {
 
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(getLimit());
-  
+
+  const [selectedBook, setSelectedBook] = useState(null); //modalBook
 
   const [prevFilters, setPrevFilters] = useState(filters);
   if (filters !== prevFilters) {
@@ -34,7 +35,6 @@ const RecommendedBooks = () => {
     setPage(1);
   }
 
- 
   useEffect(() => {
     const handleResize = () => {
       const newLimit = getLimit();
@@ -45,7 +45,6 @@ const RecommendedBooks = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
- 
   useEffect(() => {
     dispatch(
       fetchRecommendedBooks({
@@ -63,6 +62,21 @@ const RecommendedBooks = () => {
 
   const handlePrev = () => {
     if (page > 1) setPage(page - 1);
+  };
+
+  //modalBook
+  const handleOpenModal = (book) => {
+    setSelectedBook(book);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedBook(null);
+  };
+
+  const handleAddToLibrary = (id) => {
+    console.log("додано книгу з айді:", id);
+    // тут буде dispatch(addBookToLibrary(id))
+    handleCloseModal();
   };
 
   return (
@@ -92,16 +106,20 @@ const RecommendedBooks = () => {
 
       <ul className={styles.list}>
         {books.length > 0 ? (
-          books.map(({ _id, title, author, imageUrl }) => (
-            <li key={_id} className={styles.item}>
+          books.map((book) => (
+            <li
+              key={book._id}
+              className={styles.item}
+              onClick={() => handleOpenModal(book)}
+            >
               <img
-                src={imageUrl || "https://via.placeholder.com/137x208"}
-                alt={title}
+                src={book.imageUrl || "https://via.placeholder.com/137x208"}
+                alt={book.title}
                 className={styles.img}
               />
               <div className={styles.bookInfo}>
-                <h3 className={styles.bookTitle}>{title}</h3>
-                <p className={styles.bookAuthor}>{author}</p>
+                <h3 className={styles.bookTitle}>{book.title}</h3>
+                <p className={styles.bookAuthor}>{book.author}</p>
               </div>
             </li>
           ))
@@ -109,6 +127,13 @@ const RecommendedBooks = () => {
           <p className={styles.noBooks}>No books found for your request</p>
         )}
       </ul>
+      {selectedBook && (
+        <BookModal
+          book={selectedBook}
+          onClose={handleCloseModal}
+          onAdd={handleAddToLibrary}
+        />
+      )}
     </section>
   );
 };
