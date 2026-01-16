@@ -1,6 +1,5 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-
 import { selectFilter } from "../../redux/books/selectors";
 import { setFilter } from "../../redux/books/slice";
 import styles from "./FiltersForm.module.css";

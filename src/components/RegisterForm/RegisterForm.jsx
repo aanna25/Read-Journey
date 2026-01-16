@@ -3,7 +3,7 @@ import { registerSchema } from "../../utils/validationSchemas";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import clsx from "clsx";
 
 import styles from "./RegisterForm.module.css";

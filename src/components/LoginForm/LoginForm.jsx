@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { login } from "../../redux/auth/operations";
 import { loginSchema } from "../../utils/validationSchemas";
 
-import styles from "./LoginForm.module.css";
 import clsx from "clsx";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import styles from "./LoginForm.module.css";
 
 const initialValues = {
   email: "",

@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+  width: 153px; 
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background-color: transparent;
+  border: 1px solid #3e3e3e;
+  border-radius: 12px;
+  color: var(--light-white);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.button:hover {
+  border-color: var(--light-white);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  color: var(--light-white);
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background-color: var(--secondary-grey);
+  border-radius: 12px;
+  padding: 8px 0;
+  list-style: none;
+  z-index: 10;
+}
+
+.item {
+  padding: 10px 14px;
+  color: var(--light-grey);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.item:hover {
+  color: var(--light-white);
+}
+
+.active {
+  color: var(--light-white);
+}

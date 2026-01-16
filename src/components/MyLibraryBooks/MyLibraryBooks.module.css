@@ -1,0 +1,77 @@
+.wrapper {
+  flex-grow: 1;
+  background-color: var(--dark-grey);
+  border-radius: 30px;
+  padding:40px;
+  min-height: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: var(--light-white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.select {
+  background-color: transparent;
+  border: 1px solid #3e3e3e;
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: var(--light-white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1; 
+  padding: 40px 0;
+}
+
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: var(--secondary-grey); 
+  border-radius: 50%;   
+  margin-bottom: 20px;
+}
+
+.iconWrapper img {
+  width: 50px;  
+  height: 50px;
+  object-fit: contain;
+}
+
+.emptyText {
+  color: var(--light-white);
+  max-width: 270px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.emptyText span {
+  color: var(--light-grey); 
+}
+
+.bookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(137px, 137px));
+  gap: 27px 20px;
+  list-style: none;
+  padding: 0;
+}

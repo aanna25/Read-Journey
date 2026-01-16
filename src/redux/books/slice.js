@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchRecommendedBooks } from "./operations";
+import {
+  addBookById,
+  deleteBook,
+  fetchRecommendedBooks,
+  fetchUserBooks,
+} from "./operations";
 
 const booksSlice = createSlice({
   name: "books",
   initialState: {
     items: [],
     filter: { title: "", author: "" },
+    ownItems: [],
     isLoading: false,
     error: null,
     totalPages: 1,
@@ -29,10 +35,22 @@ const booksSlice = createSlice({
       .addCase(fetchRecommendedBooks.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchUserBooks.fulfilled, (state, action) => {
+        state.ownItems = action.payload; 
+      })
+      .addCase(addBookById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.ownItems.push(action.payload);
+      })
+      .addCase(deleteBook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.ownItems = state.ownItems.filter(
+          (book) => book._id !== action.payload
+        );
       });
   },
 });
 
-
-export const { setFilter } = booksSlice.actions; 
+export const { setFilter } = booksSlice.actions;
 export const booksReducer = booksSlice.reducer;

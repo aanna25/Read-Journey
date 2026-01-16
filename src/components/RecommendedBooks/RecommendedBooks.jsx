@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRecommendedBooks } from "../../redux/books/operations";
+import {
+  addBookById,
+  fetchRecommendedBooks,
+} from "../../redux/books/operations";
 import {
   selectRecommendedBooks,
   selectTotalPages,
@@ -8,6 +11,7 @@ import {
 } from "../../redux/books/selectors";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import styles from "./RecommendedBooks.module.css";
+import toast from "react-hot-toast";
 import BookModal from "../BookModal/BookModal";
 
 const getLimit = () => {
@@ -73,10 +77,15 @@ const RecommendedBooks = () => {
     setSelectedBook(null);
   };
 
-  const handleAddToLibrary = (id) => {
-    console.log("додано книгу з айді:", id);
-    // тут буде dispatch(addBookToLibrary(id))
-    handleCloseModal();
+  const handleAddToLibrary = async (id) => {
+    try {
+      await dispatch(addBookById(id)).unwrap();
+      toast.success("Book added to your library!");
+      handleCloseModal();
+    } catch (error) {
+      console.error("Failed to add book:", error);
+      toast.error(error || "Failed to add book");
+    }
   };
 
   return (
@@ -92,7 +101,6 @@ const RecommendedBooks = () => {
           >
             <LuChevronLeft size={20} />
           </button>
-
           <button
             type="button"
             className={styles.pageBtn}
@@ -103,7 +111,6 @@ const RecommendedBooks = () => {
           </button>
         </div>
       </div>
-
       <ul className={styles.list}>
         {books.length > 0 ? (
           books.map((book) => (

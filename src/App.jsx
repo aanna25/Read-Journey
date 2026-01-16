@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Toaster } from "react-hot-toast";
 import { useAuth } from "./hooks/useAuth";
 import { refresh } from "./redux/auth/operations";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
@@ -24,50 +25,59 @@ const App = () => {
   }
 
   return (
-    <Routes>
-      <Route
-        path="/register"
-        element={
-          <RestrictedRoute redirectTo="/recommended">
-            <AuthPage />
-          </RestrictedRoute>
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <RestrictedRoute redirectTo="/recommended">
-            <AuthPage />
-          </RestrictedRoute>
-        }
-      />
-      <Route
-        path="/recommended"
-        element={
-          <PrivateRoute redirectTo="/login">
-            <RecommendedPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/library"
-        element={
-          <PrivateRoute redirectTo="/login">
-            <MyLibraryPage />
-          </PrivateRoute>
-        }
+<>
+      <Toaster 
+        position="top-right" 
+        toastOptions={{
+          duration: 3000,
+        }}
       />
 
-      <Route
-        path="/"
-        element={
-          <PrivateRoute redirectTo="/login">
-            <RecommendedBooks />
-          </PrivateRoute>
-        }
-      />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+      <Routes>
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/recommended">
+              <AuthPage />
+            </RestrictedRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/recommended">
+              <AuthPage />
+            </RestrictedRoute>
+          }
+        />
+        <Route
+          path="/recommended"
+          element={
+            <PrivateRoute redirectTo="/login">
+              <RecommendedPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/library"
+          element={
+            <PrivateRoute redirectTo="/login">
+              <MyLibraryPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/"
+          element={
+            <PrivateRoute redirectTo="/login">
+              <RecommendedBooks />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 };
 
