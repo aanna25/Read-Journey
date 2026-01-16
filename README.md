@@ -13,7 +13,7 @@ The application supports user registration, login, protected routes, and a perso
 - **User Registration:** Create a new account with validated name, email, and password.
 - **User Authentication:** Secure login with token-based authorization.
 - **Recommended Books:** Discover books recommended for the user.
-- **Advanced Filters:**Filter recommended books using dashboard controls.
+- **Advanced Filters:** Filter recommended books using dashboard controls.
 - **Personal Library:** Manage a personal reading list.
 - **Favorites Manager:** Add and remove books from favorites.
 - **Responsive Navigation:** Adaptive header with burger menu on mobile and tablet.
