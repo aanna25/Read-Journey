@@ -4,9 +4,21 @@ Book Library App is a React-based web application that allows users to discover 
 
 The application supports user registration, login, protected routes, and a personalized experience for authorized users.
 
-## Preview 📸
+## Login Page 📸
 
-![Preview](/src/assets/img-preview.png)
+<img src="src/assets/img-login.png" width="600" />
+
+## Home Page 📸
+
+<img src="src/assets/img-home.png" width="600" />
+
+## Add book to library 📸
+
+<img src="src/assets/img-modal.png" width="600" />
+
+## Library Page 📸
+
+<img src="src/assets/img-library.png" width="600" />
 
 ## Core Features
 
