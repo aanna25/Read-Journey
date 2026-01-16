@@ -41,17 +41,29 @@ export const login = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+// export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+//   try {
+//     await logoutUser();
+//     clearAuthToken();
+//     toast.info("You have successfully logged out!");
+//   } catch (error) {
+//     clearAuthToken();
+//     toast.error(
+//       "You have been logged out"
+//     );
+//     return thunkAPI.rejectWithValue(error.message);
+//   }
+// });
+
+//new logout
+export const logout = createAsyncThunk("auth/logout", async () => {
   try {
     await logoutUser();
-    clearAuthToken();
-    toast.info("You have successfully logged out!");
   } catch (error) {
+    console.error("Server logout failed:", error.message);
+  } finally {
     clearAuthToken();
-    toast.error(
-      "An error occurred while logging out, but the session data was cleared"
-    );
-    return thunkAPI.rejectWithValue(error.message);
+    toast.success("See you soon!");
   }
 });
 
