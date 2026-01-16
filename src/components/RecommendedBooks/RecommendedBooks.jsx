@@ -10,9 +10,10 @@ import {
   selectFilter,
 } from "../../redux/books/selectors";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
-import styles from "./RecommendedBooks.module.css";
 import toast from "react-hot-toast";
 import BookModal from "../BookModal/BookModal";
+import defaultBookImg from "../../assets/default-book.png";
+import styles from "./RecommendedBooks.module.css";
 
 const getLimit = () => {
   if (typeof window === "undefined") return 2;
@@ -120,9 +121,12 @@ const RecommendedBooks = () => {
               onClick={() => handleOpenModal(book)}
             >
               <img
-                src={book.imageUrl || "https://via.placeholder.com/137x208"}
+                src={book.imageUrl || defaultBookImg}
                 alt={book.title}
                 className={styles.img}
+                onError={(e) => {
+                  e.target.src = defaultBookImg;
+                }}
               />
               <div className={styles.bookInfo}>
                 <h3 className={styles.bookTitle}>{book.title}</h3>
