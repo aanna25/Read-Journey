@@ -1,4 +1,4 @@
-# Read Journey 
+# 🚧 Read Journey (Work in Progress)
 
 Book Library App is a React-based web application that allows users to discover recommended books, manage their personal library, and access the platform through secure authentication.
 
