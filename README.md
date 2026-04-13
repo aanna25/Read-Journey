@@ -32,7 +32,7 @@ The application supports user registration, login, protected routes, and a perso
 
 <img src="src/assets/img-diary.png" width="600" />
 
-## Statics 📸
+## Statistics 📸
 
 <img src="src/assets/img-statics.png" width="600" />
 
