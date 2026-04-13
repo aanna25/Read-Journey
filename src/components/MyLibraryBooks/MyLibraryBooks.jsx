@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { selectUserBooks } from "../../redux/books/selectors";
 import { deleteBook, fetchUserBooks } from "../../redux/books/operations";
 import toast from "react-hot-toast";
@@ -11,6 +12,7 @@ import styles from "./MyLibraryBooks.module.css";
 
 const MyLibraryBooks = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const books = useSelector(selectUserBooks);
   const [filter, setFilter] = useState("all");
   const [selectedBook, setSelectedBook] = useState(null);
@@ -46,6 +48,11 @@ const MyLibraryBooks = () => {
     setSelectedBook(null);
   };
 
+  const handleStartReading = (id) => {
+    handleCloseModal();
+    navigate(`/reading/${id}`);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -78,11 +85,7 @@ const MyLibraryBooks = () => {
         <BookDetailsModal
           book={selectedBook}
           onClose={handleCloseModal}
-          onStart={(id) => {
-            console.log("Start reading:", id);
-            // місце для navigate(`/reading/${id}`)
-            handleCloseModal();
-          }}
+          onStart={handleStartReading}
         />
       )}
     </div>

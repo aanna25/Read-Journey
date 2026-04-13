@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.description {
+  color: var(--light-grey);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+}
+
+.chartWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.percentLabel {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--light-white);
+  z-index: 1;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: var(--green);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.percentText {
+  color: var(--light-white);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pagesText {
+  color: var(--light-grey);
+  font-size: 12px;
+}

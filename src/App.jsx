@@ -11,6 +11,7 @@ import RecommendedPage from "./pages/RecommendedPage/RecommendedPage";
 import MyLibraryPage from "./components/MyLibraryPage/MyLibraryPage";
 import RecommendedBooks from "./components/RecommendedBooks/RecommendedBooks";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import ReadingPage from "./pages/ReadingPage/ReadingPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,9 +26,9 @@ const App = () => {
   }
 
   return (
-<>
-      <Toaster 
-        position="top-right" 
+    <>
+      <Toaster
+        position="top-right"
         toastOptions={{
           duration: 3000,
         }}
@@ -66,7 +67,14 @@ const App = () => {
             </PrivateRoute>
           }
         />
-
+        <Route
+          path="/reading/:id"
+          element={
+            <PrivateRoute redirectTo="/login">
+              <ReadingPage />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/"
           element={

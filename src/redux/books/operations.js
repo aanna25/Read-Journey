@@ -6,13 +6,13 @@ axios.defaults.baseURL = "https://readjourney.b.goit.study/api";
 
 export const fetchRecommendedBooks = createAsyncThunk(
   "books/fetchRecommended",
-async ({ page, limit, title, author }, thunkAPI) => { 
+  async ({ page, limit, title, author }, thunkAPI) => {
     try {
       const { data } = await instance.get("/books/recommend", {
-        params: { 
-          page, 
+        params: {
+          page,
           limit,
-          title: title || undefined, 
+          title: title || undefined,
           author: author || undefined,
         },
       });
@@ -20,7 +20,7 @@ async ({ page, limit, title, author }, thunkAPI) => {
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const addBook = createAsyncThunk(
@@ -32,7 +32,7 @@ export const addBook = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const fetchUserBooks = createAsyncThunk(
@@ -44,19 +44,19 @@ export const fetchUserBooks = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const deleteBook = createAsyncThunk(
   "books/delete",
   async (bookId, thunkAPI) => {
     try {
-      await instance.delete(`/books/remove/${bookId}`); 
+      await instance.delete(`/books/remove/${bookId}`);
       return bookId;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const addBookById = createAsyncThunk(
@@ -68,5 +68,65 @@ export const addBookById = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
+);
+
+export const getBookInfo = createAsyncThunk(
+  "books/getInfo",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await instance.get(`/books/${id}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const startReading = createAsyncThunk(
+  "books/startReading",
+  async ({ id, page }, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/books/reading/start", {
+        id,
+        page,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message,
+      );
+    }
+  },
+);
+
+export const stopReading = createAsyncThunk(
+  "books/stopReading",
+  async ({ id, page }, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/books/reading/finish", {
+        id,
+        page,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message,
+      );
+    }
+  },
+);
+
+export const deleteReadingSession = createAsyncThunk(
+  "books/deleteSession",
+  async ({ bookId, sessionId }, thunkAPI) => {
+    try {
+      const { data } = await instance.delete("/books/reading", {
+        params: { bookId, sessionId },
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
 );

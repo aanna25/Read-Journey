@@ -4,6 +4,9 @@ import {
   deleteBook,
   fetchRecommendedBooks,
   fetchUserBooks,
+  getBookInfo,
+  startReading,
+  stopReading,
 } from "./operations";
 
 const booksSlice = createSlice({
@@ -12,6 +15,7 @@ const booksSlice = createSlice({
     items: [],
     filter: { title: "", author: "" },
     ownItems: [],
+    currentBook: null,
     isLoading: false,
     error: null,
     totalPages: 1,
@@ -37,7 +41,7 @@ const booksSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(fetchUserBooks.fulfilled, (state, action) => {
-        state.ownItems = action.payload; 
+        state.ownItems = action.payload;
       })
       .addCase(addBookById.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -46,8 +50,18 @@ const booksSlice = createSlice({
       .addCase(deleteBook.fulfilled, (state, action) => {
         state.isLoading = false;
         state.ownItems = state.ownItems.filter(
-          (book) => book._id !== action.payload
+          (book) => book._id !== action.payload,
         );
+      })
+      .addCase(getBookInfo.fulfilled, (state, action) => {
+        state.currentBook = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(startReading.fulfilled, (state, action) => {
+        state.currentBook = action.payload;
+      })
+      .addCase(stopReading.fulfilled, (state, action) => {
+        state.currentBook = action.payload;
       });
   },
 });

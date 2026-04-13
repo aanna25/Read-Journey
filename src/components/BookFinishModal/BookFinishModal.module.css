@@ -1,0 +1,56 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: #1e1e1e;
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--light-white);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.title {
+  color: var(--light-white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.text {
+  color: var(--light-grey);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: var(--light-white);
+}

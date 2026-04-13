@@ -1,0 +1,190 @@
+.pageWrapper {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dashboardCard {
+  background-color: var(--dark-grey);
+  border-radius: 30px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.detailsTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light-white);
+  margin-bottom: 20px;
+}
+
+.progressContainer {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.emptyText {
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--light-grey);
+  text-align: left;
+}
+
+.starWrapper {
+  width: 80px;
+  height: 80px;
+  background-color: var(--secondary-grey);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 32px;
+}
+
+.myBookSection {
+  background-color: var(--dark-grey);
+  border-radius: 30px;
+  padding: 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--light-white);
+  margin-bottom: 40px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookWorkplace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.bookImage {
+  width: 224px;
+  height: 340px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 25px;
+}
+
+.bookName {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--light-white);
+  margin-bottom: 8px;
+}
+
+.bookAuthor {
+  font-size: 14px;
+  color: var(--light-grey);
+}
+
+.statusCircle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 25px auto 0;
+  cursor: pointer;
+  border: none;
+  background-color: #e90516;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px var(--dark-grey),
+    0 0 0 3px var(--light-white);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reading {
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 2px var(--dark-grey),
+    0 0 0 3px var(--light-white),
+    0 0 15px rgba(231, 74, 59, 0.6);
+  transform: scale(0.95);
+}
+
+.statusCircle:hover {
+  filter: brightness(1.2);
+}
+
+.tabControls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tabContent {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--light-grey);
+  padding: 4px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.activeTab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--light-white);
+  padding: 4px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .progressContainer {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainContent {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+  }
+}
