@@ -1,4 +1,4 @@
-# 🚧 Read Journey (Work in Progress)
+# 📖 Read Journey 
 
 Book Library App is a React-based web application that allows users to discover recommended books, manage their personal library, and access the platform through secure authentication.
 
@@ -19,6 +19,26 @@ The application supports user registration, login, protected routes, and a perso
 ## Library Page 📸
 
 <img src="src/assets/img-library.png" width="600" />
+
+## My Reading Page 📸
+
+<img src="src/assets/img-my-reading.png" width="600" />
+
+## Start reading modal 📸
+
+<img src="src/assets/img-start-reading.png" width="600" />
+
+## Diary 📸
+
+<img src="src/assets/img-diary.png" width="600" />
+
+## Statics 📸
+
+<img src="src/assets/img-statics.png" width="600" />
+
+## Finish reading modal 📸
+
+<img src="src/assets/img-finish-reading.png" width="600" />
 
 ## Core Features
 
